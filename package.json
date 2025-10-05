@@ -1,0 +1,25 @@
+{
+  "name": "kurooj-root",
+  "version": "1.0.0",
+  "description": "KuroOJ - Online Judge Platform",
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run judge\" \"npm run frontend\"",
+    "backend": "cd backend && node src/server.js",
+    "judge": "cd judge && node src/server.js",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently -n \"BACKEND,JUDGE,FRONTEND\" -c \"bgBlue,bgMagenta,bgGreen\" \"npm run backend\" \"npm run judge\" \"npm run frontend\"",
+    "install-all": "npm install && cd backend && npm install && cd ../judge && npm install && cd ../frontend && npm install",
+    "clean": "rm -rf node_modules backend/node_modules judge/node_modules frontend/node_modules",
+    "clean-windows": "rmdir /s /q node_modules backend\\node_modules judge\\node_modules frontend\\node_modules"
+  },
+  "keywords": [
+    "online-judge",
+    "competitive-programming",
+    "kurooj"
+  ],
+  "author": "KuroOJ Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

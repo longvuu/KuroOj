@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Auto Fix Admin Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .step-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-auto {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-auto:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-manual {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-manual:hover {
+            background: #f8f9fa;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        
+        .status.processing {
+            background: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffeaa7;
+        }
+        
+        .countdown {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #667eea;
+            display: none;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .info-box strong {
+            color: #667eea;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .pulse {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Auto Fix Admin Access</h1>
+        <p class="subtitle">Tự động sửa lỗi không thể truy cập trang Admin</p>
+        
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">1</span>
+                Vấn đề
+            </div>
+            <div class="step-desc">
+                Database đã set role = "admin" nhưng token cũ vẫn có role = "user"
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">2</span>
+                Giải pháp
+            </div>
+            <div class="step-desc">
+                Xóa localStorage và chuyển đến trang login để lấy token mới
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-title">
+                <span class="step-number">3</span>
+                Sau khi fix
+            </div>
+            <div class="step-desc">
+                Login lại → Thấy menu "🎛️ Admin" → Click vào để truy cập
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <strong>ℹ️ Lưu ý:</strong> Sau khi fix bạn cần đăng nhập lại với user <strong>longvuu</strong>
+        </div>
+        
+        <div class="countdown" id="countdown"></div>
+        <div class="status" id="status"></div>
+        
+        <div class="button-group">
+            <button class="btn-auto" onclick="autoFix()">
+                🚀 Auto Fix (3s)
+            </button>
+            <button class="btn-manual" onclick="manualFix()">
+                👋 Manual Fix
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + type;
+            status.style.display = 'block';
+        }
+
+        function autoFix() {
+            const countdownEl = document.getElementById('countdown');
+            const buttons = document.querySelectorAll('button');
+            
+            // Disable buttons
+            buttons.forEach(btn => btn.disabled = true);
+            
+            // Show countdown
+            countdownEl.style.display = 'block';
+            countdownEl.classList.add('pulse');
+            
+            let count = 3;
+            countdownEl.textContent = count;
+            
+            const interval = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    countdownEl.textContent = count;
+                } else {
+                    clearInterval(interval);
+                    performFix();
+                }
+            }, 1000);
+        }
+
+        function performFix() {
+            showStatus('🔄 Đang xóa localStorage...', 'processing');
+            
+            setTimeout(() => {
+                // Clear localStorage
+                localStorage.clear();
+                
+                showStatus('✅ Đã xóa thành công! Chuyển đến trang login...', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 1500);
+            }, 500);
+        }
+
+        function manualFix() {
+            if (confirm('Bạn có chắc muốn xóa localStorage và logout không?')) {
+                localStorage.clear();
+                alert('✅ Đã xóa localStorage!\n\nBây giờ hãy login lại để lấy token mới.');
+                window.location.href = '/login';
+            }
+        }
+
+        // Check current token
+        window.onload = function() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                try {
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    console.log('Current token payload:', payload);
+                } catch (e) {
+                    console.error('Invalid token');
+                }
+            }
+        };
+    </script>
+</body>
+</html>

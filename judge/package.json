@@ -1,0 +1,24 @@
+{
+  "name": "kurooj-judge",
+  "version": "1.0.0",
+  "description": "Judge service cho KuroOJ - Code execution engine",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": ["judge", "code-execution"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0",
+    "dockerode": "^4.0.0",
+    "fs-extra": "^11.1.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
